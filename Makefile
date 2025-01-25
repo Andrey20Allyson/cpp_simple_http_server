@@ -1,15 +1,19 @@
 SHS_FILES := $(wildcard shs/*.cpp)
 CC := g++
 CFLAGS := -g
+BUILD_DIR = target
 
-make: $(SHS_FILES)
-	@$(CC) $^ main.cpp $(CFLAGS) -o target/main
+make: $(BUILD_DIR) $(SHS_FILES)
+	@$(CC) $(SHS_FILES) main.cpp $(CFLAGS) -o $(BUILD_DIR)/main
+
+$(BUILD_DIR):
+	@mkdir $(BUILD_DIR)
 
 run: make
-	@target/main
+	@$(BUILD_DIR)/main
 
 clean:
-	rm -f target/main
+	@rm -frv $(BUILD_DIR)
 
 nf: newfile
 
