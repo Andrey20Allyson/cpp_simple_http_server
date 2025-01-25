@@ -1,0 +1,15 @@
+{
+  "C++ Header File Default": {
+    "prefix": "hppfile",
+    "body": [
+      "#ifndef ${TM_FILENAME/[\\.]/_/g}",
+      "#define ${TM_FILENAME/[\\.]/_/g}",
+      "",
+      "namespace shs {",
+      "  $0",
+      "}",
+      "",
+      "#endif"
+    ]
+  }
+}
